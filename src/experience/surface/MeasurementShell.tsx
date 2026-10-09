@@ -153,11 +153,11 @@ export function MeasurementShell({ field }: { field: SurfaceField }) {
       (1 - (size.width < 1200 ? 0.2 : 0.75) * spread);
     material.uniforms.uMapY.value =
       (size.width < 700
-        ? 0.25
+        ? 0.42
         : size.width < 1200
-          ? 0.65 - 0.4 * compress
+          ? 0.72 - 0.4 * compress
           : 0) +
-      spread * (size.width < 1200 ? -0.55 : 1.3);
+      spread * (size.width < 700 ? -0.2 : size.width < 1200 ? -0.4 : 1.3);
     material.uniforms.uUnwrap.value = s.unwrap;
     material.uniforms.uCoverage.value = s.acquisition;
     material.uniforms.uOpacity.value = s.surface;
@@ -179,11 +179,7 @@ export function MeasurementShell({ field }: { field: SurfaceField }) {
           material.uniforms.uMapOffset.value,
           material.uniforms.uMapY.value +
             material.uniforms.uHeightScale.value +
-            (j.sceneIndex === 5 && size.width < 1200
-              ? size.width < 700
-                ? -0.06
-                : -0.07
-              : 0.07),
+            (j.sceneIndex === 5 && size.width < 1200 ? 0.05 : 0.07),
           0,
         )
         .applyMatrix4(mesh.current.matrixWorld);
@@ -199,8 +195,8 @@ export function MeasurementShell({ field }: { field: SurfaceField }) {
           .set(
             material.uniforms.uMapOffset.value,
             material.uniforms.uMapY.value -
-              material.uniforms.uHeightScale.value -
-              0.05,
+              material.uniforms.uHeightScale.value +
+              (size.width < 700 ? 0.04 : size.width < 1200 ? 0.02 : -0.04),
             0,
           )
           .applyMatrix4(mesh.current.matrixWorld);

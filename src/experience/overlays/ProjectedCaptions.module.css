@@ -35,6 +35,14 @@
   height: 3px;
   background: linear-gradient(90deg, #548ca9, #40545a, #cd7350);
 }
+.flowLegend {
+  position: relative;
+  display: flex;
+  transform: none;
+  width: 100%;
+  padding-top: 8px;
+  padding-bottom: 10px;
+}
 @media (max-width: 699.98px) {
   .caption {
     font-size: 9.5px;
@@ -43,5 +51,8 @@
   .legend {
     width: 78%;
     font-size: 9px;
+  }
+  .flowLegend {
+    width: 100%;
   }
 }

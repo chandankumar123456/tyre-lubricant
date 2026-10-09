@@ -293,6 +293,7 @@ test('full interaction: fast jumps, partial reverse, keyboard, orientation and w
     window.scrollTo({ top: journey.offsetTop + (journey.offsetHeight - innerHeight) * p, behavior: 'instant' })
   }, target)
   await expect.poll(async () => Number(await canvas.getAttribute('data-progress'))).toBeGreaterThan(globalAt(2, .65))
+  expect(Number(await canvas.getAttribute('data-progress'))).toBeLessThan(target - .001)
   await seek(page, 2, .6)
   await expect(canvas).toHaveAttribute('data-observation-hash', observationHash!)
   await seek(page, 5, .47)

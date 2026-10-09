@@ -440,42 +440,46 @@ export function IntelligenceAnnotations({
       {whatIf && (
         <>
           <p className={styles.heading}>Compare a candidate alignment</p>
-          <label className={styles.slider} htmlFor="candidate-nozzle">
-            Illustrative nozzle position{" "}
-            <output htmlFor="candidate-nozzle">{candidate.toFixed(2)}</output>
-          </label>
-          <input
-            id="candidate-nozzle"
-            type="range"
-            min="0.3"
-            max="0.8"
-            step="0.01"
-            value={candidate}
-            aria-describedby="whatif-explanation"
-            onChange={(event) => {
-              const value = Number(event.target.value);
-              setLocalCandidate(value);
-              onCandidateChange?.(value);
-            }}
-          />
-          <label className={styles.slider} htmlFor="candidate-flow">
-            Illustrative flow{" "}
-            <output htmlFor="candidate-flow">{flow.toFixed(2)}</output>
-          </label>
-          <input
-            id="candidate-flow"
-            type="range"
-            min="0.7"
-            max="1.3"
-            step="0.01"
-            value={flow}
-            aria-describedby="whatif-explanation"
-            onChange={(event) => {
-              const value = Number(event.target.value);
-              setLocalFlow(value);
-              onFlowChange?.(value);
-            }}
-          />
+          <div>
+            <label className={styles.slider} htmlFor="candidate-nozzle">
+              Illustrative nozzle position{" "}
+              <output htmlFor="candidate-nozzle">{candidate.toFixed(2)}</output>
+            </label>
+            <input
+              id="candidate-nozzle"
+              type="range"
+              min="0.3"
+              max="0.8"
+              step="0.01"
+              value={candidate}
+              aria-describedby="whatif-explanation"
+              onChange={(event) => {
+                const value = Number(event.target.value);
+                setLocalCandidate(value);
+                onCandidateChange?.(value);
+              }}
+            />
+          </div>
+          <div>
+            <label className={styles.slider} htmlFor="candidate-flow">
+              Illustrative flow{" "}
+              <output htmlFor="candidate-flow">{flow.toFixed(2)}</output>
+            </label>
+            <input
+              id="candidate-flow"
+              type="range"
+              min="0.7"
+              max="1.3"
+              step="0.01"
+              value={flow}
+              aria-describedby="whatif-explanation"
+              onChange={(event) => {
+                const value = Number(event.target.value);
+                setLocalFlow(value);
+                onFlowChange?.(value);
+              }}
+            />
+          </div>
           <p className={styles.result}>
             Peak unexplained residual {candidatePeak.toFixed(2)}
             {candidatePeak < recordedPeak - 0.01

@@ -44,6 +44,24 @@ describe("degraded observable inputs", () => {
     expect(decideTyre({ field: surface(), normal }).disposition).toBe("REVIEW");
   });
 
+  it.each([
+    { width: 0, height: 0, observation: new Float32Array(0), confidence: new Float32Array(0), validity: new Uint8Array(0) },
+    { width: 128, height: 48, observation: new Float32Array(0) },
+    { width: 128, height: 48, confidence: new Float32Array(1) },
+    { width: 128, height: 48, validity: new Uint8Array(1) },
+    { width: 128, height: 48, confidence: new Float32Array(128 * 48 - 1).fill(0.9) },
+    { width: 127, height: 48 },
+  ])("rejects empty or misaligned measurement grids before quality evaluation", (overrides) => {
+    const field = { ...surface(), ...overrides };
+    const result = decideTyre({ field, normal: dataDirector.normal });
+    expect(result.disposition).toBe("INVALID");
+    expect(result.recommendedAction).toBe("REINSPECT");
+    expect(result.measurementHealth.usable).toBe(false);
+    expect(Number.isFinite(result.measurementHealth.validFraction)).toBe(true);
+    expect(Number.isFinite(result.measurementHealth.coverageCompleteness)).toBe(true);
+    expect(result.defectCandidate).toBeNull();
+  });
+
   const emptyTrace: ProcessTrace = {
     traceId: "empty", tyreId: "test", stationId: "test", clock: "intra-tyre",
     startTimestamp: 0, samples: [],

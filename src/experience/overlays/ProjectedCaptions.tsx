@@ -1,10 +1,17 @@
 import { useExperienceStore } from "../state/experienceStore";
+import { createPortal } from "react-dom";
 import { dataDirector } from "../core/DataDirector";
 import { annotationRef } from "../core/AnnotationRegistry";
 import styles from "./ProjectedCaptions.module.css";
 const caption = { anchor: "translate(-50%,-100%)", display: "block" };
 const legend = { anchor: "translate(-50%,0)", display: "flex" };
-export function ProjectedCaptions() {
+export function ProjectedCaptions({
+  compact = false,
+  legendContainer = null,
+}: {
+  compact?: boolean;
+  legendContainer?: HTMLElement | null;
+}) {
   const scene = useExperienceStore((s) => s.sceneIndex),
     beat = useExperienceStore((s) => s.beatId);
   if (scene < 2) return null;
@@ -34,6 +41,18 @@ export function ProjectedCaptions() {
         "process.comparingObserved",
       ].includes(beat)
     );
+  const legendContent = scene < 5 && (deviation || residual) && (
+    <div
+      id="deviation-legend"
+      ref={compact ? undefined : annotationRef("deviation-legend", legend)}
+      className={`${styles.legend} ${compact ? styles.flowLegend : ""}`}
+    >
+      <i />
+      <span>Lower than expected</span>
+      <span>Expected</span>
+      <span>Higher than expected</span>
+    </div>
+  );
   return (
     <div className={styles.captions} aria-label="Surface evidence labels">
       <span
@@ -77,18 +96,9 @@ export function ProjectedCaptions() {
                   ? "Validity · M"
                   : `${dataDirector.hero.id} · observation O`}
       </span>
-      {scene < 5 && (deviation || residual) && (
-        <div
-          id="deviation-legend"
-          ref={annotationRef("deviation-legend", legend)}
-          className={styles.legend}
-        >
-          <i />
-          <span>Lower than expected</span>
-          <span>Expected</span>
-          <span>Higher than expected</span>
-        </div>
-      )}
+      {compact
+        ? legendContainer && createPortal(legendContent, legendContainer)
+        : legendContent}
     </div>
   );
 }

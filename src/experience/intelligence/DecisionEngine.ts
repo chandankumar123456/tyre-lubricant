@@ -86,6 +86,23 @@ export function assessMeasurement(
 ): MeasurementHealth {
   const rules = policy.measurement;
   const { width, height } = field;
+  const total = width * height;
+  if (
+    !Number.isSafeInteger(width) || width <= 0 ||
+    !Number.isSafeInteger(height) || height <= 0 ||
+    !Number.isSafeInteger(total) ||
+    [field.observation, field.confidence, field.validity].some(
+      (array) => array.length !== total,
+    )
+  ) return {
+    validFraction: 0,
+    lowConfidenceFraction: 1,
+    coverageCompleteness: 0,
+    largestCoverageGapDegrees: 360,
+    reportedMissedRanges: field.acquisition.missedThetaRanges ?? [],
+    usable: false,
+    issues: ["Measurement grid is empty or its observation/confidence/validity arrays do not match its dimensions."],
+  };
   let valid = 0,
     weak = 0,
     covered = 0;
@@ -115,7 +132,6 @@ export function assessMeasurement(
     run = columnCovered[k % width] ? 0 : run + 1;
     gap = Math.max(gap, Math.min(run, width));
   }
-  const total = width * height;
   const health = {
     validFraction: valid / total,
     lowConfidenceFraction: valid ? weak / valid : 1,
