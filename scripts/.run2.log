@@ -1,0 +1,36 @@
+1024x768: 0 flagged / 27; injected flagged 0; evidence-scroll beats 0; errors 1
+768x1024: 0 flagged / 27; injected flagged 6; evidence-scroll beats 0; errors 0
+   s3-0.88 [normal.regionLocalized] INJ collide evidence├ù#deviation-legend(8085)
+   s3-0.94 [normal.knownPattern] INJ collide evidence├ù#deviation-legend(8085)
+   s3-0.96 [normal.unknownPossible] INJ collide evidence├ù#deviation-legend(8085)
+   s4-0.82 [process.residualVisible] INJ collide evidence├ù#deviation-legend(7182)
+   s4-0.88 [process.supportState] INJ collide evidence├ù#deviation-legend(7140)
+   s4-0.93 [process.combinedEvidence] INJ collide evidence├ù#deviation-legend(7119)
+390x844: 23 flagged / 27; injected flagged 0; evidence-scroll beats 0; errors 0
+   s3-0.5 [undefined] ERROR TimeoutError: page.waitForFunction: Timeout 30000ms exceeded.
+   s3-0.66 [undefined] ERROR TimeoutError: page.waitForFunction: Timeout 30000ms exceeded.
+   s3-0.76 [undefined] ERROR TimeoutError: page.waitForFunction: Timeout 30000ms exceeded.
+   s3-0.88 [undefined] ERROR TimeoutError: page.waitForFunction: Timeout 30000ms exceeded.
+   s3-0.94 [undefined] ERROR TimeoutError: page.waitForFunction: Timeout 30000ms exceeded.
+   s3-0.96 [undefined] ERROR TimeoutError: page.waitForFunction: Timeout 30000ms exceeded.
+   s4-0.1 [undefined] ERROR TimeoutError: page.waitForFunction: Timeout 30000ms exceeded.
+   s4-0.35 [undefined] ERROR TimeoutError: page.waitForFunction: Timeout 30000ms exceeded.
+   s4-0.5 [undefined] ERROR TimeoutError: page.waitForFunction: Timeout 30000ms exceeded.
+   s4-0.67 [undefined] ERROR TimeoutError: page.waitForFunction: Timeout 30000ms exceeded.
+   s4-0.82 [undefined] ERROR Error: page.waitForFunction: Target page, context or browser has been closed
+Browser logs:
+
+<launching> C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-win
+   s4-0.88 [undefined] ERROR Error: page.reload: Target page, context or browser has been closed
+   s4-0.93 [undefined] ERROR Error: page.reload: Target page, context or browser has been closed
+   s5-0.08 [undefined] ERROR Error: page.reload: Target page, context or browser has been closed
+   s5-0.17 [undefined] ERROR Error: page.reload: Target page, context or browser has been closed
+   s5-0.25 [undefined] ERROR Error: page.reload: Target page, context or browser has been closed
+   s5-0.34 [undefined] ERROR Error: page.reload: Target page, context or browser has been closed
+   s5-0.47 [undefined] ERROR Error: page.reload: Target page, context or browser has been closed
+   s5-0.54 [undefined] ERROR Error: page.reload: Target page, context or browser has been closed
+   s5-0.7 [undefined] ERROR Error: page.reload: Target page, context or browser has been closed
+   s5-0.77 [undefined] ERROR Error: page.reload: Target page, context or browser has been closed
+   s5-0.82 [undefined] ERROR Error: page.reload: Target page, context or browser has been closed
+   s5-0.9 [undefined] ERROR Error: page.reload: Target page, context or browser has been closed
+Saved docs\qa\v2-layout\report-run2.json

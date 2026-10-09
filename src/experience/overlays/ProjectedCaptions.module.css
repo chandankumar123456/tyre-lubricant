@@ -1,0 +1,47 @@
+/* Absolute over the whole stage; children are positioned every frame by 3D projection. */
+.captions {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.caption {
+  display: none;
+  position: absolute;
+  transform: translate(-50%, -100%);
+  padding-bottom: 9px;
+  font-size: 10.5px;
+  color: #d8e0dc;
+  white-space: nowrap;
+  text-shadow: 0 1px 6px #101718;
+}
+.legend {
+  position: absolute;
+  transform: translate(-50%, 0);
+  width: 38%;
+  display: none;
+  justify-content: space-between;
+  gap: 8px;
+  padding-top: 10px;
+  font-size: 10px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  text-shadow: 0 1px 6px #101718;
+}
+.legend i {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #548ca9, #40545a, #cd7350);
+}
+@media (max-width: 699.98px) {
+  .caption {
+    font-size: 9.5px;
+    padding-bottom: 6px;
+  }
+  .legend {
+    width: 78%;
+    font-size: 9px;
+  }
+}

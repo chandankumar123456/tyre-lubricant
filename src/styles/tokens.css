@@ -1,0 +1,105 @@
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ecefe9;
+  background: #101718;
+  font-synthesis: none;
+  --ink: #101718;
+  --paper: #ecefe9;
+  --muted: #bac2bb;
+  --blue: #94bfd2;
+  --amber: #d2ac72;
+  --green: #a8c5ab;
+
+  /* Overlay text on the dark stage. Contrast is measured against the lightest
+     stage tone behind overlay text (#263537 radial centre, before .shade). */
+  --text-heading: #e3ebe7; /* 12.9:1 */
+  --text-body: #c9d3ce; /* 10.0:1 */
+  --text-secondary: #b9c7c1; /* 8.4:1 */
+  --text-label: #aebfb8; /* 7.5:1 */
+  --rule: rgba(163, 187, 179, 0.3);
+  --rule-strong: #65716b;
+
+  /* Decision states: text is always present; hue is a secondary signal. */
+  --state-fail: #d79a7e;
+  --state-review: #d6b37c;
+  --state-invalid: #b7c0bd;
+  --state-pass: #a9c9ad;
+
+  /* Screen-space overlay layout (aligned with the 3D 700 / 1200 px profiles). */
+  --header-h: 100px;
+  --gutter-l: 6vw;
+  --gutter-r: 4vw;
+  --rail-bottom: 42px;
+  --narrative-w: min(460px, 31vw);
+  --technical-w: min(600px, 41vw);
+  --window-min: min(26svh, 260px);
+  --hit: 44px;
+  /* Tablet maps are centred horizontally with a projected half-width of ~19svh. */
+  --map-half-w: 19svh;
+  --side-evidence-w: clamp(
+    240px,
+    calc(50vw - var(--map-half-w) - 20px - var(--gutter-r)),
+    380px
+  );
+}
+@media (max-width: 1199.98px) {
+  :root {
+    --gutter-l: 7.5vw;
+    --gutter-r: 7.5vw;
+  }
+}
+@media (max-width: 699.98px) {
+  :root {
+    --header-h: 78px;
+    --gutter-l: 7vw;
+    --gutter-r: 7vw;
+    --rail-bottom: 30px;
+    --window-min: min(22svh, 190px);
+  }
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: auto;
+}
+body {
+  margin: 0;
+}
+button,
+a,
+input {
+  font: inherit;
+}
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+a {
+  color: inherit;
+}
+button {
+  cursor: pointer;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 5px;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+button {
+  color: inherit;
+}
+::selection {
+  background: #d2ac72;
+  color: #101718;
+}

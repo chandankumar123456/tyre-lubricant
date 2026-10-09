@@ -1,0 +1,130 @@
+/* Placed by the App overlay grid (`tech` track): right column on desktop, its own row below 1200 px. */
+.annotations {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  pointer-events: none;
+  color: var(--text-body);
+}
+.label {
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+.label span {
+  color: var(--amber);
+}
+.coverage {
+  height: 5px;
+  background: #52625c;
+  margin: 18px 0 10px;
+  position: relative;
+}
+.coverage > div {
+  height: 100%;
+  background: #99c0ca;
+  transform-origin: left;
+}
+.coverage i {
+  position: absolute;
+  top: -5px;
+  height: 15px;
+  border-left: 1px solid var(--amber);
+}
+.ticks {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+}
+.encoder p {
+  font-size: 10px;
+  line-height: 1.7;
+  color: #bcc8c1;
+}
+.axes {
+  font-size: 11px;
+  border-top: 1px solid #75857c;
+  padding-top: 15px;
+}
+.axes > div {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+  color: #d1b17b;
+  font-size: 10px;
+}
+.axes p {
+  font-size: 10px;
+  color: #b5c3bd;
+}
+.profile {
+  max-width: 320px;
+  display: block;
+  margin-left: auto;
+}
+.profile text {
+  fill: #bcc8c1;
+  font-size: 10px;
+}
+.evidence {
+  font-size: 10px;
+  line-height: 1.6;
+  margin-top: 22px;
+}
+.evidence svg {
+  max-width: 250px;
+  display: block;
+}
+.evidence small {
+  color: var(--text-secondary);
+}
+@media (max-width: 1199.98px) {
+  .annotations {
+    max-width: none;
+  }
+  .profile {
+    max-width: 240px;
+    margin: auto;
+  }
+  .axes {
+    padding-top: 9px;
+  }
+  .axes p,
+  .axes > div {
+    font-size: 10px;
+    margin: 7px 0;
+  }
+  .evidence {
+    font-size: 10px;
+    margin-top: 10px;
+  }
+  .evidence svg {
+    max-width: 180px;
+  }
+  .evidence p {
+    margin: 3px 0;
+  }
+}
+@media (max-width: 699.98px) {
+  .label {
+    font-size: 10.5px;
+  }
+  .encoder p {
+    font-size: 10px;
+    line-height: 1.5;
+  }
+  .profile {
+    max-width: 220px;
+  }
+  .axes {
+    font-size: 10px;
+  }
+  .axes p,
+  .axes > div {
+    margin: 5px 0;
+  }
+  .evidence svg {
+    max-width: 160px;
+  }
+}

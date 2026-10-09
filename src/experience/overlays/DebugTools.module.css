@@ -1,0 +1,46 @@
+.debug {
+  position: fixed;
+  right: 12px;
+  top: 100px;
+  z-index: 30;
+  width: 290px;
+  max-height: 70vh;
+  overflow: auto;
+  background: #0c1517f2;
+  border: 1px solid #647776;
+  padding: 12px;
+  font: 11px/1.6 monospace;
+  color: #eef3ee;
+}
+.debug summary {
+  cursor: pointer;
+}
+.debug pre {
+  white-space: pre-wrap;
+}
+.debug nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.debug button {
+  background: #223234;
+  border: 1px solid #647776;
+  color: inherit;
+  padding: 4px;
+}
+.debug label {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+.debug input {
+  width: 75px;
+}
+.debug dl div {
+  display: flex;
+  justify-content: space-between;
+}
+.debug dd {
+  margin: 0;
+}

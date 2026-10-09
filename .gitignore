@@ -1,0 +1,10 @@
+node_modules/
+dist/
+test-results/
+playwright-report/
+*.tsbuildinfo
+docs/
+GPT Image
+Nano Banana Image
+test-results
+Architecture proposal.docx

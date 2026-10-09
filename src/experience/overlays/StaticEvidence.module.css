@@ -1,0 +1,121 @@
+.plate {
+  max-width: 700px;
+  margin: 28px 0 36px;
+  color: #b6c9c8;
+  border-top: 1px solid #9aafad35;
+  padding-top: 16px;
+}
+.kicker {
+  font-size: 9px;
+  letter-spacing: 0.17em;
+  color: #879e9d;
+  margin: 0 0 16px !important;
+}
+.maps {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px 24px;
+}
+.map {
+  margin: 0;
+  min-width: 0;
+}
+.map figcaption {
+  font-size: 12px;
+  color: #d4dfdd;
+  margin-bottom: 7px;
+}
+.map svg,
+.physical svg,
+.history svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.map svg text {
+  font-size: 10px;
+  fill: #92abaa;
+}
+.legend {
+  font-size: 9px !important;
+  line-height: 1.5;
+  color: #90a8a7;
+  margin: 4px 0 !important;
+}
+.note {
+  font-size: 11px !important;
+  line-height: 1.65;
+  color: #9fb4b0;
+  margin-top: 17px !important;
+}
+.physical {
+  margin: 0;
+}
+.physical svg text {
+  font-size: 11px;
+  fill: #a9c0be;
+  letter-spacing: 0.025em;
+}
+.physical figcaption {
+  font-size: 11px;
+  color: #94aaa7;
+  line-height: 1.6;
+  margin-top: 10px;
+}
+.history svg text {
+  font-size: 11px;
+  fill: #9fb7b1;
+}
+.history p {
+  font-size: 12px;
+  line-height: 1.7;
+}
+.review {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+.review strong {
+  color: #d3e1da;
+  font-size: 11px;
+  font-weight: 500;
+}
+.review p {
+  color: #a5bcb2;
+  font-size: 11px;
+}
+@media (max-width: 600px) {
+  .plate {
+    margin: 20px 0 26px;
+    padding-top: 13px;
+  }
+  .maps {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .map {
+    max-width: 390px;
+  }
+  .map figcaption {
+    font-size: 11px;
+  }
+  .review {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .physical svg {
+    min-height: 150px;
+  }
+  .physical svg text {
+    font-size: 12px;
+  }
+  .history svg {
+    min-height: 125px;
+  }
+  .history svg text {
+    font-size: 12px;
+  }
+  .note {
+    font-size: 10px !important;
+  }
+}
